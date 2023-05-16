@@ -1,0 +1,49 @@
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>main page with everything</title>
+</head>
+<body>
+
+<h1>HELLO OBAMA!</h1>
+
+<p th:text="${bloknote}"></p>
+<!--<p th:text="${bloknote.id}"></p>-->
+<!--<p th:text="${bloknote.note}"></p>-->
+<!--<p th:text="${bloknote.author}"></p>-->
+
+
+<h1>here your notes mazafaka</h1>
+<table th:border="1" th:cellpadding="10">
+    <tr th:each="bl : ${bloknote}">
+        <td th:text="${bl.id}">..</td>
+        <td th:text="${bl.note}">..</td>
+        <td th:text="${bl.author}">..</td>
+    </tr>
+</table>
+
+
+
+
+<h1>anything else?</h1>
+
+<body>
+<p>Where is my button, Lebovski?</p>
+<div>
+    <div th:each="bl, iStat : ${_links}">
+        <input type="image" th:src="${link}" value="Click me" onclick="buttonClick(this)">
+    </div>
+</div>
+
+<script type="text/javascript">
+    function buttonClick(e) {
+        var att = e.getAttribute('src');
+        alert(att);
+    }
+</script>
+</body>
+
+
+</body>
+</html>
