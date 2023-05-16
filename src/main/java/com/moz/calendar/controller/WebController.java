@@ -5,7 +5,7 @@ import com.moz.calendar.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class WebController {
@@ -14,16 +14,16 @@ public class WebController {
     private NoteService noteService;
 
     @GetMapping("/")
-    public String index(Model model){
-
-
-
-//        model.addAttribute("bloknote", new Note(30, "note","author"));
-
-            model.addAttribute("bloknote", noteService.getAllNotes());
-
-
+    public String index(Model model) {
+        model.addAttribute("bloknote", noteService.getAllNotes());
         return "index";
     }
+
+    @PostMapping(value = "/add")
+    public String add(@ModelAttribute Note note, Model model){
+        model.addAttribute("note", note);
+        return "index";
+    }
+
 
 }

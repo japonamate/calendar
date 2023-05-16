@@ -1,0 +1,22 @@
+<html xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD</title>
+</head>
+<body>
+
+<h1>HELLO OBAMA! ADD</h1>
+
+
+<h1>Form</h1>
+<form action="#" th:action="@{/note}" th:object="${note}" method="post">
+    <p>Id: <input type="text" th:field="*{id}"/></p>
+    <p>Note: <input type="text" th:field="*{note}"/></p>
+    <p>Author: <input type="text" th:field="*{author}"/></p>
+    <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+Пока разобраться с этим
+http://spring-projects.ru/guides/handling-form-submission/

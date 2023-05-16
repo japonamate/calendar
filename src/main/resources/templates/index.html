@@ -26,22 +26,8 @@
 
 
 
-<h1>anything else?</h1>
 
-<body>
-<p>Where is my button, Lebovski?</p>
-<div>
-    <div th:each="bl, iStat : ${_links}">
-        <input type="image" th:src="${link}" value="Click me" onclick="buttonClick(this)">
-    </div>
-</div>
 
-<script type="text/javascript">
-    function buttonClick(e) {
-        var att = e.getAttribute('src');
-        alert(att);
-    }
-</script>
 </body>
 
 
