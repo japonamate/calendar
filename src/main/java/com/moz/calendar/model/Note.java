@@ -22,4 +22,12 @@ public class Note {
     @Column(name = "author")     //WTF! user not valid kurva user
     private String author;
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

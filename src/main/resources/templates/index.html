@@ -5,16 +5,9 @@
     <title>main page with everything</title>
 </head>
 <body>
+<div th:insert="header :: copy"></div>
 
-<h1>HELLO OBAMA!</h1>
-
-<p th:text="${bloknote}"></p>
-<!--<p th:text="${bloknote.id}"></p>-->
-<!--<p th:text="${bloknote.note}"></p>-->
-<!--<p th:text="${bloknote.author}"></p>-->
-
-
-<h1>here your notes mazafaka</h1>
+<h1>here your notes</h1>
 <table th:border="1" th:cellpadding="10">
     <tr th:each="bl : ${bloknote}">
         <td th:text="${bl.id}">..</td>
@@ -28,8 +21,6 @@
 
 
 
-</body>
-
-
+<div th:insert="footer :: copy"></div>
 </body>
 </html>
