@@ -20,13 +20,10 @@ public class CalendarTable {
     public static final String ANSI_GREEN = "\u001B[32m";
 
 
-//    @GetMapping("/notes")
-//    public List<Note> getAllNotes() {
-//        return noteService.getAllNotes();
-//    }
+
 
     @GetMapping("/calendar")
-    public String mainCalendar(Model model) {
+    public String mainCalendar() {
         Calendar calendar = Calendar.getInstance();
 
         int thisDay = calendar.get(Calendar.DAY_OF_MONTH);
@@ -62,17 +59,14 @@ public class CalendarTable {
         for (int i = 1; i <= days[thisMonth]; i++) {
             if (i != thisDay) {
                 System.out.printf("%2d ", i);
-                model.addAttribute("printDay", i);
-
             }
             else {
                 System.out.printf(ANSI_RED + "%2d " + ANSI_RESET, i);
-
             }
             if (((i + d) % 7 == 0) || (i == days[thisMonth]))
                 System.out.println();     //:: need to go to the next line ::
         }
-        return "calendar";
+        return "index";
     }
 
 
