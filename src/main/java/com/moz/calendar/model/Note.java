@@ -19,7 +19,7 @@ public class Note {
     @Column(name = "note")
     private String note;
 
-    @Column(name = "author")     //WTF! user not valid kurva user
+    @Column(name = "author")     //WTF! user not a valid. kurva user!
     private String author;
 
 

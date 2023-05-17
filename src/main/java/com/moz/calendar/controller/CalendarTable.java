@@ -63,10 +63,11 @@ public class CalendarTable {
             if (i != thisDay) {
                 System.out.printf("%2d ", i);
                 model.addAttribute("printDay", i);
+
             }
             else {
                 System.out.printf(ANSI_RED + "%2d " + ANSI_RESET, i);
-                model.addAttribute("printDay", i);
+
             }
             if (((i + d) % 7 == 0) || (i == days[thisMonth]))
                 System.out.println();     //:: need to go to the next line ::
