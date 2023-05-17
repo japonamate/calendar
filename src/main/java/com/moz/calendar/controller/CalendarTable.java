@@ -1,15 +1,32 @@
 package com.moz.calendar.controller;
 
-import java.util.Calendar;
+import com.moz.calendar.model.Note;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Calendar;
+import java.util.List;
+
+@Controller
+@RequestMapping("/api")
 public class CalendarTable {
 
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_GREEN = "\u001B[32m";
-    public static void main(String[] args) {
 
+
+//    @GetMapping("/notes")
+//    public List<Note> getAllNotes() {
+//        return noteService.getAllNotes();
+//    }
+
+    @GetMapping("/calendar")
+    public String mainCalendar(Model model) {
         Calendar calendar = Calendar.getInstance();
 
         int thisDay = calendar.get(Calendar.DAY_OF_MONTH);
@@ -43,13 +60,19 @@ public class CalendarTable {
         // print the calendar
         for (int i = 0; i < d; i++) System.out.print("   ");
         for (int i = 1; i <= days[thisMonth]; i++) {
-            if (i != thisDay) System.out.printf("%2d ", i);
-            else  System.out.printf(ANSI_RED +"%2d " + ANSI_RESET, i);
-                if (((i + d) % 7 == 0) || (i == days[thisMonth])) System.out.println();     //:: need to go to the next line ::
+            if (i != thisDay) {
+                System.out.printf("%2d ", i);
+                model.addAttribute("printDay", i);
             }
+            else {
+                System.out.printf(ANSI_RED + "%2d " + ANSI_RESET, i);
+                model.addAttribute("printDay", i);
+            }
+            if (((i + d) % 7 == 0) || (i == days[thisMonth]))
+                System.out.println();     //:: need to go to the next line ::
         }
-
-
+        return "calendar";
+    }
 
 
     public static int day(int M, int D, int Y) {

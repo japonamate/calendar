@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<body>
+<div th:fragment="copy" >
+
+  <p class="format">CALENDAR HERE</p>
+
+  <h1>from calendar.html</h1>
+  <table th:border="1" th:cellpadding="10">
+    <tr th:each="bl : ${printDay}">
+<!--      <td th:text="${bl.id}">..</td>-->
+<!--      <td th:text="${bl.note}">..</td>-->
+<!--      <td th:text="${bl.author}">..</td>-->
+    </tr>
+  </table>
+
+</div>
+
+</body>
+</html>
